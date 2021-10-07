@@ -14,5 +14,10 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, PlayerFragment.newInstance())
                 .commit()
+    }    
+     override fun onPause() {
+        player?.stop()
+        player?.release()
+        super.onPause()
     }
 }
